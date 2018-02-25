@@ -1,0 +1,11 @@
+version: '2'
+services:
+    materialandstockmanagement-postgresql:
+        image: postgres:9.6.5
+        # volumes:
+        #     - ~/volumes/jhipster/MaterialAndStockManagement/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=MaterialAndStockManagement
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
