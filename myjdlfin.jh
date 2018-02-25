@@ -1,0 +1,145 @@
+entity Company {
+Code String maxlength(10) required,
+Name String maxlength(60) required,
+Comments String maxlength(500)
+}
+
+entity Country {
+ISOCode String maxlength(3) required,
+Name String maxlength(60) required
+}
+
+entity Currency {
+ISOCode String maxlength(3) required,
+Name String maxlength(60) required
+}
+
+entity Forexrates {
+Rate_Date LocalDate required,
+StraighRate Double required,
+}
+
+entity Thirdclassification {
+Code String maxlength(3) required,
+Name String maxlength(60) required,
+Comments String maxlength(500)
+}
+
+entity Third {
+Code String maxlength(3) required,
+Name String maxlength(60) required,
+Comments String maxlength(500)
+}
+
+entity Addressclassification {
+Code String maxlength(3) required,
+Name String maxlength(60) required,
+Comments String maxlength(500)
+}
+
+
+entity Address {
+Description String maxlength(200)
+Line1 String maxlength(80) required,
+Line2 String maxlength(80) ,
+Line3 String maxlength(80) ,
+Line4 String maxlength(80) ,
+ZipCode String maxlength(10) ,
+State String maxlength(80) ,
+ValidFrom LocalDate,
+ValidTo LocalDate,
+Comments String maxlength(500)
+}
+
+entity Civility {
+Code String maxlength(3) required,
+Name String maxlength(60) required,
+Comments String maxlength(500)
+}
+
+entity Transferclassification {
+Code String maxlength(3) required,
+Name String maxlength(60) required,
+IsOutgoingTransfer Boolean required,
+IsIncomingTransfer Boolean required,
+IsInternalTransfer Boolean required,
+Comments String maxlength(500)
+}
+
+entity Materialclassification{
+Code String maxlength(20) required,
+Name String maxlength(60) required,
+Comments String maxlength(500)
+}
+
+entity Lot{
+Code String maxlength(20) required,
+Description String maxlength(200) required,
+CreationDate LocalDate required,
+NumberOfItems Long required,
+Comments String maxlength(500)
+}
+
+entity Material{
+Code String maxlength(20) required,
+Description String maxlength(200) required,
+CreationDate LocalDate required,
+Comments String maxlength(500)
+}
+
+entity Workgroup{
+Code String maxlength(20) required,
+Description String maxlength(200) required,
+Comments String maxlength(500)
+}
+
+entity Usr{
+Code String maxlength(20) required,
+FirstName String maxlength(200) required,
+LastName String maxlength(200) required,
+Isactive Boolean required,
+Comments String maxlength(500)
+}
+
+
+entity Materialhistory{
+Code String maxlength(20),
+CreationDate LocalDate required,
+Comments String maxlength(500)
+}
+
+relationship OneToMany {
+Currency{company1} to Company{baseCurrency(Name)  required},
+Thirdclassification{third1} to Third{thirdClassification9(Name) required},
+Addressclassification{address1} to Address{addressclassification8(Name) required},
+Transferclassification{materialhistory1} to Materialhistory{Transferclassification2(Name) required},
+Materialclassification{material1} to Material{Materialclassification6(Name) required},
+Currency{material2} to Material{buycurrency(ISOCode) required},
+Currency{material3} to Material{Sellcurrency(ISOCode) required},
+Currency{lot1} to Lot{buycurrency1(ISOCode) required},
+Currency{lot2} to Lot{sellcurrency1(ISOCode) required},
+Third{materialhistory1} to Materialhistory{warehousefrom(Name) required},
+Third{materialhistory2} to Materialhistory{Warehouseto(Name) required},
+Civility{third2} to Third{civility1(Name) required},
+Lot{material4} to Material{lot5(Code) required},
+Materialclassification{material4} to Material{materialclassification1(Code) required},
+Country{addressc} to Address{Country1(Name)}
+}
+
+
+relationship ManyToMany {
+Materialhistory{itemTransfered} to Material,
+Third{address3} to Address{thirdaddress(Name)}
+}
+
+
+paginate Thirdclassification, Company, Country , Currency , Thirdclassification, Addressclassification, Workgroup , Usr , Transferclassification , Materialclassification with infinite-scroll
+paginate Lot, Material, Materialhistory  with pagination
+
+dto * with mapstruct
+
+service all with serviceClass
+
+angularSuffix * with StockAndSalesUtility
+
+search * with elasticsearch 
