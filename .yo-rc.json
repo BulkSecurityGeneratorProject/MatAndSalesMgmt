@@ -4,7 +4,7 @@
       "packageName": "kirgiz.stockandsalesmanagement.app",
       "nativeLanguage": "fr"
     },
-    "jhipsterVersion": "4.10.2",
+    "jhipsterVersion": "4.14.0",
     "baseName": "MaterialAndStockManagement",
     "packageName": "kirgiz.stockandsalesmanagement.app",
     "packageFolder": "kirgiz/stockandsalesmanagement/app",
@@ -37,6 +37,8 @@
     "languages": [
       "fr",
       "en"
-    ]
+    ],
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true
   }
 }
