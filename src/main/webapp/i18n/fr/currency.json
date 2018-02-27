@@ -3,19 +3,19 @@
     "materialAndStockManagementApp": {
         "currency" : {
             "home": {
-                "title": "Currencies",
-                "createLabel": "Créer un nouveau Currency",
-                "createOrEditLabel": "Créer ou éditer un Currency",
-                "search": "Recherche pour Currency"
+                "title": "Monnaies",
+                "createLabel": "Créer une nouvelle Monnaie",
+                "createOrEditLabel": "Créer ou éditer une Monnaie",
+                "search": "Rechercher une Monnaie"
             },
-            "created": "Un nouveau Currency a été créé avec l'identifiant {{ param }}",
-            "updated": "Le Currency avec l'identifiant {{ param }} a été mis à jour",
-            "deleted": "Le Currency avec l'identifiant {{ param }} a été supprimé",
+            "created": "Une nouvelle Monnaie a été créé avec l'identifiant {{ param }}",
+            "updated": "La Monnaie avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "La Monnaie avec l'identifiant {{ param }} a été supprimé",
             "delete": {
-                "question": "Etes-vous certain de vouloir supprimer le Currency {{ id }} ?"
+                "question": "Etes-vous certain de vouloir supprimer la Monnaie {{ id }} ?"
             },
             "detail": {
-                "title": "Currency"
+                "title": "Monnaie"
             },
             "iSOCode": "I SO Code",
             "name": "Name",
