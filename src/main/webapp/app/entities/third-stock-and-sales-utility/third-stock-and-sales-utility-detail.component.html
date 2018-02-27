@@ -1,0 +1,52 @@
+
+<div *ngIf="third">
+    <h2><span jhiTranslate="materialAndStockManagementApp.third.detail.title">Third</span> {{third.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="materialAndStockManagementApp.third.code">Code</span></dt>
+        <dd>
+            <span>{{third.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="materialAndStockManagementApp.third.name">Name</span></dt>
+        <dd>
+            <span>{{third.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="materialAndStockManagementApp.third.comments">Comments</span></dt>
+        <dd>
+            <span>{{third.comments}}</span>
+        </dd>
+        <dt><span jhiTranslate="materialAndStockManagementApp.third.address3">Address 3</span></dt>
+        <dd>
+            <span *ngFor="let address3 of third.address3S; let last = last">
+                <a [routerLink]="['/address-stock-and-sales-utility', address3?.id ]">{{address3.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="materialAndStockManagementApp.third.thirdClassification9">Third Classification 9</span></dt>
+        <dd>
+            <div *ngIf="third.thirdClassification9Id">
+                <a [routerLink]="['/thirdclassification-stock-and-sales-utility', third.thirdClassification9Id]">{{third.thirdClassification9Name}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="materialAndStockManagementApp.third.civility1">Civility 1</span></dt>
+        <dd>
+            <div *ngIf="third.civility1Id">
+                <a [routerLink]="['/civility-stock-and-sales-utility', third.civility1Id]">{{third.civility1Name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'third-stock-and-sales-utility/'+ third.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

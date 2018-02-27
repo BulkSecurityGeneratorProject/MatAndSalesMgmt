@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Material.
+    -->
+    <changeSet id="20180225185659-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="materialclassification6_id"
+                                 baseTableName="material"
+                                 constraintName="fk_material_materialclassification6_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="materialclassification"/>
+
+        <addForeignKeyConstraint baseColumnNames="buycurrency_id"
+                                 baseTableName="material"
+                                 constraintName="fk_material_buycurrency_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="currency"/>
+
+        <addForeignKeyConstraint baseColumnNames="sellcurrency_id"
+                                 baseTableName="material"
+                                 constraintName="fk_material_sellcurrency_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="currency"/>
+
+        <addForeignKeyConstraint baseColumnNames="lot5_id"
+                                 baseTableName="material"
+                                 constraintName="fk_material_lot5_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lot"/>
+
+        <addForeignKeyConstraint baseColumnNames="materialclassification1_id"
+                                 baseTableName="material"
+                                 constraintName="fk_material_materialclassification1_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="materialclassification"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,29 @@
+
+{
+    "materialAndStockManagementApp": {
+        "materialhistory" : {
+            "home": {
+                "title": "Materialhistories",
+                "createLabel": "Créer un nouveau Materialhistory",
+                "createOrEditLabel": "Créer ou éditer un Materialhistory",
+                "search": "Recherche pour Materialhistory"
+            },
+            "created": "Un nouveau Materialhistory a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Materialhistory avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Materialhistory avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Materialhistory {{ id }} ?"
+            },
+            "detail": {
+                "title": "Materialhistory"
+            },
+            "code": "Code",
+            "creationDate": "Creation Date",
+            "comments": "Comments",
+            "itemTransfered": "Item Transfered",
+            "transferclassification2": "Transferclassification 2",
+            "warehousefrom": "Warehousefrom",
+            "warehouseto": "Warehouseto"
+        }
+    }
+}

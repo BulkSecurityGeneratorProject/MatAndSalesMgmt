@@ -1,0 +1,25 @@
+
+{
+    "materialAndStockManagementApp": {
+        "workgroup" : {
+            "home": {
+                "title": "Workgroups",
+                "createLabel": "Créer un nouveau Workgroup",
+                "createOrEditLabel": "Créer ou éditer un Workgroup",
+                "search": "Recherche pour Workgroup"
+            },
+            "created": "Un nouveau Workgroup a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Workgroup avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Workgroup avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Workgroup {{ id }} ?"
+            },
+            "detail": {
+                "title": "Workgroup"
+            },
+            "code": "Code",
+            "description": "Description",
+            "comments": "Comments"
+        }
+    }
+}

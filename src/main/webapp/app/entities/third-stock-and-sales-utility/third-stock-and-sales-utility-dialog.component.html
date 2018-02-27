@@ -1,0 +1,98 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myThirdLabel" jhiTranslate="materialAndStockManagementApp.third.home.createOrEditLabel">Create or edit a Third</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!third.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="third.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="materialAndStockManagementApp.third.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                [(ngModel)]="third.code" required maxlength="3"/>
+            <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.code?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.code?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 3 }">
+                   This field cannot be longer than 3 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="materialAndStockManagementApp.third.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="third.name" required maxlength="60"/>
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 60 }">
+                   This field cannot be longer than 60 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="materialAndStockManagementApp.third.comments" for="field_comments">Comments</label>
+            <input type="text" class="form-control" name="comments" id="field_comments"
+                [(ngModel)]="third.comments" maxlength="500"/>
+            <div [hidden]="!(editForm.controls.comments?.dirty && editForm.controls.comments?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.comments?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 500 }">
+                   This field cannot be longer than 500 characters.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="materialAndStockManagementApp.third.address3" for="field_address3">Address 3</label>
+            <select class="form-control" id="field_address3" multiple name="address3" [(ngModel)]="third.address3S">
+                <option [ngValue]="getSelected(third.address3S, addressOption)" *ngFor="let addressOption of addresses; trackBy: trackAddressById">{{addressOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="materialAndStockManagementApp.third.thirdClassification9" for="field_thirdClassification9">Third Classification 9</label>
+            <select class="form-control" id="field_thirdClassification9" name="thirdClassification9" [(ngModel)]="third.thirdClassification9Id"  required>
+                <option *ngIf="!editForm.value.thirdClassification9" [ngValue]="null" selected></option>
+                <option [ngValue]="thirdclassificationOption.id" *ngFor="let thirdclassificationOption of thirdclassifications; trackBy: trackThirdclassificationById">{{thirdclassificationOption.name}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.thirdClassification9?.dirty && editForm.controls.thirdClassification9?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.thirdClassification9?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="materialAndStockManagementApp.third.civility1" for="field_civility1">Civility 1</label>
+            <select class="form-control" id="field_civility1" name="civility1" [(ngModel)]="third.civility1Id"  required>
+                <option *ngIf="!editForm.value.civility1" [ngValue]="null" selected></option>
+                <option [ngValue]="civilityOption.id" *ngFor="let civilityOption of civilities; trackBy: trackCivilityById">{{civilityOption.name}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.civility1?.dirty && editForm.controls.civility1?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.civility1?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

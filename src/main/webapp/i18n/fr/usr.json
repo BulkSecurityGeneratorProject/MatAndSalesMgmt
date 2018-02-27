@@ -1,0 +1,27 @@
+
+{
+    "materialAndStockManagementApp": {
+        "usr" : {
+            "home": {
+                "title": "Usrs",
+                "createLabel": "Créer un nouveau Usr",
+                "createOrEditLabel": "Créer ou éditer un Usr",
+                "search": "Recherche pour Usr"
+            },
+            "created": "Un nouveau Usr a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Usr avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Usr avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Usr {{ id }} ?"
+            },
+            "detail": {
+                "title": "Usr"
+            },
+            "code": "Code",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "isactive": "Isactive",
+            "comments": "Comments"
+        }
+    }
+}

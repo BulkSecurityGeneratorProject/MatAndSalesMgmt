@@ -1,0 +1,58 @@
+
+<div *ngIf="materialhistory">
+    <h2><span jhiTranslate="materialAndStockManagementApp.materialhistory.detail.title">Materialhistory</span> {{materialhistory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="materialAndStockManagementApp.materialhistory.code">Code</span></dt>
+        <dd>
+            <span>{{materialhistory.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="materialAndStockManagementApp.materialhistory.creationDate">Creation Date</span></dt>
+        <dd>
+            <span>{{materialhistory.creationDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="materialAndStockManagementApp.materialhistory.comments">Comments</span></dt>
+        <dd>
+            <span>{{materialhistory.comments}}</span>
+        </dd>
+        <dt><span jhiTranslate="materialAndStockManagementApp.materialhistory.itemTransfered">Item Transfered</span></dt>
+        <dd>
+            <span *ngFor="let itemTransfered of materialhistory.itemTransfereds; let last = last">
+                <a [routerLink]="['/material-stock-and-sales-utility', itemTransfered?.id ]">{{itemTransfered.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="materialAndStockManagementApp.materialhistory.transferclassification2">Transferclassification 2</span></dt>
+        <dd>
+            <div *ngIf="materialhistory.transferclassification2Id">
+                <a [routerLink]="['/transferclassification-stock-and-sales-utility', materialhistory.transferclassification2Id]">{{materialhistory.transferclassification2Name}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="materialAndStockManagementApp.materialhistory.warehousefrom">Warehousefrom</span></dt>
+        <dd>
+            <div *ngIf="materialhistory.warehousefromId">
+                <a [routerLink]="['/third-stock-and-sales-utility', materialhistory.warehousefromId]">{{materialhistory.warehousefromName}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="materialAndStockManagementApp.materialhistory.warehouseto">Warehouseto</span></dt>
+        <dd>
+            <div *ngIf="materialhistory.warehousetoId">
+                <a [routerLink]="['/third-stock-and-sales-utility', materialhistory.warehousetoId]">{{materialhistory.warehousetoName}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'materialhistory-stock-and-sales-utility/'+ materialhistory.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
