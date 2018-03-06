@@ -24,6 +24,7 @@ import { MaterialAndStockManagementMaterialStockAndSalesUtilityModule } from './
 import { MaterialAndStockManagementWorkgroupStockAndSalesUtilityModule } from './workgroup-stock-and-sales-utility/workgroup-stock-and-sales-utility.module';
 import { MaterialAndStockManagementUsrStockAndSalesUtilityModule } from './usr-stock-and-sales-utility/usr-stock-and-sales-utility.module';
 import { MaterialAndStockManagementMaterialhistoryStockAndSalesUtilityModule } from './materialhistory-stock-and-sales-utility/materialhistory-stock-and-sales-utility.module';
+import { MaterialAndStockManagementMovementsdashboardModule } from './movementsdashboard/movementsdashboard.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -44,6 +45,7 @@ import { MaterialAndStockManagementMaterialhistoryStockAndSalesUtilityModule } f
         MaterialAndStockManagementWorkgroupStockAndSalesUtilityModule,
         MaterialAndStockManagementUsrStockAndSalesUtilityModule,
         MaterialAndStockManagementMaterialhistoryStockAndSalesUtilityModule,
+        MaterialAndStockManagementMovementsdashboardModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

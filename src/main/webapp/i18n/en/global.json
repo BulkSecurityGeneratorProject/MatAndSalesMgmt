@@ -23,6 +23,7 @@
                 "workgroupStockAndSalesUtility": "Workgroup",
                 "usrStockAndSalesUtility": "Usr",
                 "materialhistoryStockAndSalesUtility": "Materialhistory",
+                "movementsdashboard": "Movementsdashboard",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

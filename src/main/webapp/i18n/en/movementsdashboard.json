@@ -1,0 +1,28 @@
+
+{
+    "materialAndStockManagementApp": {
+        "movementsdashboard" : {
+            "home": {
+                "title": "Movementsdashboards",
+                "createLabel": "Create a new Movementsdashboard",
+                "createOrEditLabel": "Create or edit a Movementsdashboard",
+                "search": "Search for Movementsdashboard"
+            },
+            "created": "A new Movementsdashboard is created with identifier {{ param }}",
+            "updated": "A Movementsdashboard is updated with identifier {{ param }}",
+            "deleted": "A Movementsdashboard is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Movementsdashboard {{ id }}?"
+            },
+            "detail": {
+                "title": "Movementsdashboard"
+            },
+            "movementDate": "Movement Date",
+            "materialClass": "Material Class",
+            "initialLocation": "Initial Location",
+            "finalLocation": "Final Location",
+            "profitOrLoss": "Profit Or Loss",
+            "numberOfItems": "Number Of Items"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+
+{
+    "materialAndStockManagementApp": {
+        "movementsdashboard" : {
+            "home": {
+                "title": "Tableau de bord",
+                "createLabel": "Créer un nouveau Tableau de bord (à faire disparaitre, écran de reporting, pas de saise)",
+                "createOrEditLabel": "Créer ou éditer un Movementsdashboard",
+                "search": "Recherche pour Tableau de bord"
+            },
+            "created": "Un nouveau Tableau de bord a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Tableau de bord avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Tableau de bord avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Tableau de bord {{ id }} ?"
+            },
+            "detail": {
+                "title": "Tableau de bord"
+            },
+            "movementDate": "Movement Date",
+            "materialClass": "Material Class",
+            "initialLocation": "Initial Location",
+            "finalLocation": "Final Location",
+            "profitOrLoss": "Profit Or Loss",
+            "numberOfItems": "Number Of Items"
+        }
+    }
+}

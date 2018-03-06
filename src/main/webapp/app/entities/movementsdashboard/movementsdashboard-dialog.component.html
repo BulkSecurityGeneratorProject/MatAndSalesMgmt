@@ -1,0 +1,94 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMovementsdashboardLabel" jhiTranslate="materialAndStockManagementApp.movementsdashboard.home.createOrEditLabel">Create or edit a Movementsdashboard</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!movementsdashboard.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="movementsdashboard.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="materialAndStockManagementApp.movementsdashboard.movementDate" for="field_movementDate">Movement Date</label>
+            <div class="input-group">
+                <input id="field_movementDate" type="text" class="form-control" name="movementDate" ngbDatepicker  #movementDateDp="ngbDatepicker" [(ngModel)]="movementsdashboard.movementDate"
+                required/>
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="movementDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.movementDate?.dirty && editForm.controls.movementDate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.movementDate?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="materialAndStockManagementApp.movementsdashboard.materialClass" for="field_materialClass">Material Class</label>
+            <input type="text" class="form-control" name="materialClass" id="field_materialClass"
+                [(ngModel)]="movementsdashboard.materialClass" required/>
+            <div [hidden]="!(editForm.controls.materialClass?.dirty && editForm.controls.materialClass?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.materialClass?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="materialAndStockManagementApp.movementsdashboard.initialLocation" for="field_initialLocation">Initial Location</label>
+            <input type="text" class="form-control" name="initialLocation" id="field_initialLocation"
+                [(ngModel)]="movementsdashboard.initialLocation" required/>
+            <div [hidden]="!(editForm.controls.initialLocation?.dirty && editForm.controls.initialLocation?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.initialLocation?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="materialAndStockManagementApp.movementsdashboard.finalLocation" for="field_finalLocation">Final Location</label>
+            <input type="text" class="form-control" name="finalLocation" id="field_finalLocation"
+                [(ngModel)]="movementsdashboard.finalLocation" required/>
+            <div [hidden]="!(editForm.controls.finalLocation?.dirty && editForm.controls.finalLocation?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.finalLocation?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="materialAndStockManagementApp.movementsdashboard.profitOrLoss" for="field_profitOrLoss">Profit Or Loss</label>
+            <input type="number" class="form-control" name="profitOrLoss" id="field_profitOrLoss"
+                [(ngModel)]="movementsdashboard.profitOrLoss" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="materialAndStockManagementApp.movementsdashboard.numberOfItems" for="field_numberOfItems">Number Of Items</label>
+            <input type="number" class="form-control" name="numberOfItems" id="field_numberOfItems"
+                [(ngModel)]="movementsdashboard.numberOfItems" required/>
+            <div [hidden]="!(editForm.controls.numberOfItems?.dirty && editForm.controls.numberOfItems?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.numberOfItems?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.numberOfItems?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

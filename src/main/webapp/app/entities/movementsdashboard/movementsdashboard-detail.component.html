@@ -1,0 +1,46 @@
+
+<div *ngIf="movementsdashboard">
+    <h2><span jhiTranslate="materialAndStockManagementApp.movementsdashboard.detail.title">Movementsdashboard</span> {{movementsdashboard.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="materialAndStockManagementApp.movementsdashboard.movementDate">Movement Date</span></dt>
+        <dd>
+            <span>{{movementsdashboard.movementDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="materialAndStockManagementApp.movementsdashboard.materialClass">Material Class</span></dt>
+        <dd>
+            <span>{{movementsdashboard.materialClass}}</span>
+        </dd>
+        <dt><span jhiTranslate="materialAndStockManagementApp.movementsdashboard.initialLocation">Initial Location</span></dt>
+        <dd>
+            <span>{{movementsdashboard.initialLocation}}</span>
+        </dd>
+        <dt><span jhiTranslate="materialAndStockManagementApp.movementsdashboard.finalLocation">Final Location</span></dt>
+        <dd>
+            <span>{{movementsdashboard.finalLocation}}</span>
+        </dd>
+        <dt><span jhiTranslate="materialAndStockManagementApp.movementsdashboard.profitOrLoss">Profit Or Loss</span></dt>
+        <dd>
+            <span>{{movementsdashboard.profitOrLoss}}</span>
+        </dd>
+        <dt><span jhiTranslate="materialAndStockManagementApp.movementsdashboard.numberOfItems">Number Of Items</span></dt>
+        <dd>
+            <span>{{movementsdashboard.numberOfItems}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'movementsdashboard/'+ movementsdashboard.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
